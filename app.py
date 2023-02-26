@@ -1,5 +1,6 @@
 import json
 import nltk
+nltk.download('punkt')
 from nltk.tokenize import word_tokenize
 from nltk.probability import FreqDist
 from flask import Flask, render_template, request
