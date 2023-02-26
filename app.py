@@ -5,19 +5,6 @@ from nltk.tokenize import word_tokenize
 from nltk.probability import FreqDist
 from flask import Flask, render_template, request
 
-# 读取JSON文件
-with open('result.json', 'r') as f:
-    chat_data = json.load(f)
-
-# 合并所有消息的文本
-all_text = ' '.join([entity['text'] for msg in chat_data['messages'] for entity in msg['text_entities'] if entity['type'] == 'plain'])
-
-# 分词
-tokens = word_tokenize(all_text)
-
-# 创建词频分布
-fdist = FreqDist(tokens)
-
 # Flask web应用
 app = Flask(__name__)
 
