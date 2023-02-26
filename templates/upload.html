@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Telegram Chat Analysis</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.1/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+  </head>
+  <body>
+
+    <div class="m-8 p-8 bg-white rounded-lg shadow-lg">
+      <h1 class="text-2xl font-bold">Telegram Chat Analysis</h1>
+      <p class="text-gray-600">This is a simple tool to analyze your Telegram chat history.</p>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+    <input type="file" name="file" class="file-input w-full max-w-xs m-2" />
+      <input type="submit" class="btn btn-outline btn-primary" value="Upload">
+    </form>
+  <div class="overflow-x-auto">
+  <table class="table w-1/2">
+    <thead>
+      <tr>
+        <th>Word</th>
+        <th>Count</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for word, count in top_words %}
+        <tr>
+          <td>{{ word }}</td>
+          <td>{{ count }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+  </body>
+</html>
